@@ -3,15 +3,17 @@ var ws, connectionId;
 function connect() {
    if ("WebSocket" in window) {
       append("Opening websocket!");
-      ws = new WebSocket("ws://37.187.97.187:8001/echo");
+      ws = new WebSocket("ws://localhost:8001/");
 
       ws.onopen = function(){
          //ws.send("ping");
-         //append("Sending ping...");
+         append("Connection opened !!");
       };
 
       ws.onmessage = function (evt){
-         var json = JSON.parse(evt.data);
+        append("Message received: " + evt.data);
+
+         /*var json = JSON.parse(evt.data);
          switch(json.type) {
            case "connection":
               connectionId = json.value;
@@ -19,7 +21,7 @@ function connect() {
               break;
            case 'user': drawUser(json); break;
            default: append("Message not recognized " + evt.data);
-         }
+         }*/
       };
 
       ws.onclose = function() {
@@ -39,19 +41,12 @@ function sendJson(json){
   ws.send(JSON.stringify(json));
 }
 
-function drawUser(user) {
-  var userId = user.id.replace(/[!"#$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "");
-  console.log("Drawing user " + userId);
-  var $user = $('#'+userId);
-  if (!$user.length) {
-    $user = $("<div class='user' id='"+userId+"'></div>");
-    $("body").append($user);
+$("#send").click(function(){
+  var input = $("#input").val();
+  if (input) {
+    append("Sending message: "+input);
+    ws.send(input);
   }
-  $user.css({top: user.y, left: user.x});
-}
-$(document).mousemove(function( event ) {
-  var move = {type: 'move', x: event.pageX, y: event.pageY};
-  sendJson(move);
 });
 
 connect();
