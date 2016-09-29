@@ -2,20 +2,26 @@
 <html>
    <head>
       <script languaje='javascript' src="jquery.min.js"></script>
-      <style>
-        .user {
-          border:1px solid red;
-          width:10px;
-          height:10px;
-          position:absolute;
-          top:0px;
-          left:0px;
-        }
-      </style>
    </head>
-   <body>
-      <input id='input' type='text'/><button id='send'> Send</button>
-      <pre id='log'></pre>
+
+   <body style='overflow: hidden'>
+     <canvas id='canvas'  width="800" height="600" style='border:1px solid'></canvas>
+
+     <button id='reconnect'>Reconnect</button>
+    <div style='width:100%; height:200px; overflow:auto; background-color:gray'>
+        <pre id='log'></pre>
+      </div>
    </body>
-   <script type="text/javascript" src ='websockets.js'></script>
+
+   <script src="js/graphics/common.js"></script>
+   <script src="js/graphics/camera.js"></script>
+   <script src="js/graphics/render.js"></script>
+   <script src="js/controls.js"></script>
+   <script src="js/update.js"></script>
+   <script src="js/game.js"></script>
+   <script type="text/javascript" src ='js/ui.js'></script>
+
+   <script type="text/javascript" src ='js/websockets.js'></script>
+
+
 </html>

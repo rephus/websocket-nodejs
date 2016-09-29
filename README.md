@@ -1,6 +1,10 @@
+# Work in progress
+
 ## Description
 
-Simple websocket nodejs demo
+Proceduraly generated RPG multiplager game with websockets
+
+![images/screen1.png](images/screen1.png)
 
 ## Run
 
