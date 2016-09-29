@@ -1,10 +1,6 @@
-# Work in progress
-
 ## Description
 
-Proceduraly generated RPG multiplager game with websockets
-
-![images/screen1.png](images/screen1.png)
+Simple websocket nodejs demo
 
 ## Run
 

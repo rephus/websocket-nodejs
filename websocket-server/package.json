@@ -1,8 +1,7 @@
 {
-  "name": "infinite-websocket",
+  "name": "websocket-demo",
   "dependencies": {
-    "nodejs-websocket": "^1.4.0",
-    "redis": "0.12.1"
+    "nodejs-websocket": "^1.4.0"
   },
   "engine": {
     "node": ">=0.10.25"
